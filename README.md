@@ -3,6 +3,12 @@ html-include
 
 Process .html files as ejs templates from the document_root
 
+## installation
+
+```
+$ npm install html-include
+```
+
 ## usage
 
 Create a html-include handler for a folder full of .html files:
