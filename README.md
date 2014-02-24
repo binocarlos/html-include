@@ -84,6 +84,28 @@ includes.on('page', function(filepath, vars){
 })
 ```
 
+## async data
+
+you can fetch data asynchronously inside the page event as follows:
+
+```js
+includes.on('page', function(filepath, vars, done){
+	if(filepath.match(/\/async/){
+
+		// set this flag and the response will wait for 'done' to be called
+		vars._async = true;
+
+		load_database_data(function(error, data){
+			if(error){
+				return done(error);
+			}
+			vars.data = data;
+			done();
+		})
+	}
+})
+```
+
 ## render
 
 you can call the render method from elsewhere in your logic:
